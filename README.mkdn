@@ -4,7 +4,7 @@ Dist::Zilla::Plugin::Covenant - add the author's pledge to the distribution
 
 # VERSION
 
-version 0.1.0
+version 0.1.1
 
 # SYNOPSIS
 
@@ -17,11 +17,11 @@ In dist.ini:
 # DESCRIPTION
 
 `Dist::Zilla::Plugin::Covenant` adds the file
-'_AUTHOR_PLEDGE_' to the distribution. The author
+'_AUTHOR\_PLEDGE_' to the distribution. The author
 as defined in _dist.ini_ is taken as being the pledgee.
 
 The _META_ file of the distribution is also modified to
-include a _x_author_pledge_ stanza.
+include a _x\_author\_pledge_ stanza.
 
 # CONFIGURATION OPTIONS
 
@@ -31,15 +31,15 @@ Version of the pledge to use.
 
 Defaults to '1'.
 
-## pledge_file
+## pledge\_file
 
 Name of the file holding the pledge.
 
-Defaults to 'AUTHOR_PLEDGE'.
+Defaults to 'AUTHOR\_PLEDGE'.
 
 # AUTHOR
 
-Yanick Champoux <yanick@babyl.dyndns.org>
+Yanick Champoux <yanick@babyl.dyndns.org> [![endorse](http://api.coderwall.com/yanick/endorsecount.png)](http://coderwall.com/yanick)
 
 # COPYRIGHT AND LICENSE
 

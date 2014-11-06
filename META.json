@@ -4,7 +4,7 @@
       "Yanick Champoux <yanick@babyl.dyndns.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300009, CPAN::Meta::Converter version 2.120630",
+   "generated_by" : "Dist::Zilla version 5.023, CPAN::Meta::Converter version 2.142690",
    "license" : [
       "perl_5"
    ],
@@ -16,18 +16,24 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Module::Build" : "0.3601"
+            "Module::Build" : "0.28"
          }
       },
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.3601"
+            "Module::Build" : "0.28"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "version" : "0.9901"
          }
       },
       "runtime" : {
          "requires" : {
             "Dist::Zilla::File::InMemory" : "0",
-            "Dist::Zilla::Role::InstallTool" : "0",
+            "Dist::Zilla::Role::FileGatherer" : "0",
+            "Dist::Zilla::Role::MetaProvider" : "0",
             "Dist::Zilla::Role::Plugin" : "0",
             "Dist::Zilla::Role::TextTemplate" : "0",
             "Moose" : "0",
@@ -37,39 +43,40 @@
       },
       "test" : {
          "requires" : {
-            "Carp" : "0",
-            "File::Find" : "0",
-            "File::Temp" : "0",
-            "Scalar::Util" : "0",
+            "File::Spec" : "0",
+            "IO::Handle" : "0",
+            "IPC::Open3" : "0",
             "Test::DZil" : "0",
-            "Test::More" : "0.94",
-            "perl" : "5.004"
+            "Test::More" : "0.88",
+            "perl" : "5.006"
          }
       }
    },
    "provides" : {
       "Dist::Zilla::Plugin::Covenant" : {
          "file" : "lib/Dist/Zilla/Plugin/Covenant.pm",
-         "version" : "v0.1.0"
+         "version" : "v0.1.1"
       }
    },
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "mailto" : "bug-dist-zilla-plugin-covenant at rt.cpan.org",
-         "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-Covenant"
+         "web" : "https://github.com/yanick/Dist-Zilla-Plugin-Covenant/issues"
       },
-      "homepage" : "http://search.cpan.org/dist/Dist-Zilla-Plugin-Covenant/",
+      "homepage" : "https://github.com/yanick/Dist-Zilla-Plugin-Covenant",
       "repository" : {
          "type" : "git",
          "url" : "https://github.com/yanick/Dist-Zilla-Plugin-Covenant.git",
          "web" : "https://github.com/yanick/Dist-Zilla-Plugin-Covenant"
       }
    },
-   "version" : "0.1.0",
+   "version" : "0.1.1",
    "x_author_pledge" : {
       "version" : 1
    },
-   "x_authority" : "cpan:YANICK"
+   "x_authority" : "cpan:YANICK",
+   "x_contributors" : [
+      "Apocalypse <APOCAL@cpan.org>"
+   ]
 }
 

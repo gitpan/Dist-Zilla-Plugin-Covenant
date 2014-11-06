@@ -2,11 +2,8 @@ package Dist::Zilla::Plugin::Covenant;
 BEGIN {
   $Dist::Zilla::Plugin::Covenant::AUTHORITY = 'cpan:YANICK';
 }
-{
-  $Dist::Zilla::Plugin::Covenant::VERSION = '0.1.0';
-}
 # ABSTRACT: add the author's pledge to the distribution
-
+$Dist::Zilla::Plugin::Covenant::VERSION = '0.1.1';
 
 
 use strict;
@@ -17,8 +14,9 @@ use Dist::Zilla::File::InMemory;
 
 with qw/
     Dist::Zilla::Role::Plugin
-    Dist::Zilla::Role::InstallTool
+    Dist::Zilla::Role::FileGatherer
     Dist::Zilla::Role::TextTemplate
+    Dist::Zilla::Role::MetaProvider
 /;
 
 has pledge_file => (
@@ -26,12 +24,13 @@ has pledge_file => (
     default => 'AUTHOR_PLEDGE',
 );
 
-sub setup_installer {
+sub metadata {
     my $self = shift;
+    return { 'x_author_pledge' => { 'version' => 1 } };
+}
 
-    $self->zilla->distmeta->{x_author_pledge} = {
-        version => 1,
-    };
+sub gather_files {
+    my $self = shift;
 
     my $pledge = $self->fill_in_string(
         pledge_template(), {   
@@ -47,6 +46,7 @@ sub setup_installer {
     );
 
     $self->add_file($file);
+    return;
 }
 
 sub pledge_template {
@@ -72,7 +72,10 @@ no Moose;
 1;
 
 __END__
+
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -80,7 +83,7 @@ Dist::Zilla::Plugin::Covenant - add the author's pledge to the distribution
 
 =head1 VERSION
 
-version 0.1.0
+version 0.1.1
 
 =head1 SYNOPSIS
 
@@ -125,4 +128,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
